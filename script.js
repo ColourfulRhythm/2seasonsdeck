@@ -63,10 +63,11 @@ function init() {
         const diffX = touchStartX - touchEndX;
         const diffY = touchStartY - touchEndY;
         
-        // Determine if this is a horizontal swipe (more horizontal than vertical)
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+        // Only prevent default for clear horizontal swipes (2x more horizontal than vertical)
+        // This allows vertical scrolling to work normally
+        if (Math.abs(diffX) > Math.abs(diffY) * 2 && Math.abs(diffX) > 30) {
             isSwiping = true;
-            // Prevent scrolling during horizontal swipe
+            // Prevent scrolling only during clear horizontal swipe
             e.preventDefault();
         }
     }, { passive: false });
