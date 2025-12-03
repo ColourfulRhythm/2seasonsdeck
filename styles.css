@@ -905,62 +905,450 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-title {
-        font-size: 60px;
-        letter-spacing: 4px;
+        font-size: 42px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
     }
     
     .tagline {
-        font-size: 28px;
+        font-size: 18px;
     }
     
     .tagline-expand {
-        font-size: 24px;
+        font-size: 16px;
     }
     
     .page-title {
-        font-size: 42px;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    
+    .page-subtitle {
+        font-size: 14px;
+        margin-bottom: 12px;
     }
     
     .nav-dots {
-        right: 20px;
+        right: 15px;
+        gap: 8px;
+    }
+    
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .dot.active {
+        width: 10px;
+        height: 10px;
     }
     
     .slide {
-        padding: 40px 20px;
-    }
-    
-    .installment-hero {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .stat-number {
-        font-size: 60px;
+        padding: 20px 15px;
     }
     
     .cover-logo {
-        max-width: 150px;
-        padding: 10px;
+        max-width: 120px;
+        padding: 8px;
+        margin-bottom: 15px;
     }
     
+    .cover-subtitle {
+        margin-bottom: 20px;
+    }
+    
+    .cover-tags {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .tag {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .cover-footer {
+        font-size: 12px;
+    }
+    
+    /* Vision Grid */
+    .vision-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .vision-card {
+        padding: 15px;
+    }
+    
+    .card-icon {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+    
+    .vision-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .vision-card p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    .vision-card ul li {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 4px;
+    }
+    
+    /* Features Grid */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .feature-card {
+        padding: 12px;
+    }
+    
+    .feature-card h4 {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+    
+    .feature-card p {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+    
+    .purpose-box {
+        margin-top: 10px;
+        padding: 12px;
+    }
+    
+    .purpose-box p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    /* Membership Grid */
+    .membership-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .membership-header {
+        padding: 12px;
+    }
+    
+    .membership-header h3 {
+        font-size: 16px;
+    }
+    
+    .membership-content {
+        padding: 15px;
+    }
+    
+    .membership-content p {
+        font-size: 12px;
+    }
+    
+    .includes-section {
+        margin-top: 10px;
+    }
+    
+    .includes-section h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .includes-grid {
+        gap: 6px;
+    }
+    
+    .include-item {
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+    
+    /* Installment Hero */
+    .installment-hero {
+        flex-direction: column;
+        gap: 15px;
+        margin: 10px 0;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+        margin-bottom: 5px;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+    }
+    
+    /* Benefits Grid */
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .benefit-card {
+        padding: 12px;
+    }
+    
+    .benefit-card h4 {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+    
+    .benefit-card p {
+        font-size: 10px;
+    }
+    
+    .impact-box {
+        margin-top: 10px;
+        padding: 12px;
+    }
+    
+    .impact-box p {
+        font-size: 12px;
+    }
+    
+    /* Academy Hero */
+    .academy-hero {
+        margin: 10px 0;
+    }
+    
+    .hero-badge {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+    
+    /* Sports Grid */
+    .sports-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .sport-card {
+        padding: 12px;
+    }
+    
+    .sport-card h3 {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    
+    .sport-card p {
+        font-size: 10px;
+    }
+    
+    .academy-features {
+        margin-top: 10px;
+    }
+    
+    .academy-features h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .features-list {
+        gap: 6px;
+    }
+    
+    .feature-item {
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+    
+    .positioning-box {
+        margin-top: 10px;
+        padding: 12px;
+    }
+    
+    .positioning-box p {
+        font-size: 12px;
+    }
+    
+    /* Creative Grid */
+    .creative-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .creative-card {
+        padding: 12px;
+    }
+    
+    .creative-card h4 {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+    
+    .creative-card p {
+        font-size: 10px;
+    }
+    
+    /* Ecosystem Visual */
+    .ecosystem-visual {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .ecosystem-item {
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    /* Impact Grid */
+    .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .impact-card {
+        padding: 15px;
+    }
+    
+    .impact-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .impact-card p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    /* Partnership Grid */
+    .partnership-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .partnership-card {
+        padding: 12px;
+    }
+    
+    .partnership-card h4 {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+    
+    .partnership-card p {
+        font-size: 10px;
+    }
+    
+    .contact-section {
+        margin-top: 10px;
+        padding: 15px;
+    }
+    
+    .contact-section h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .contact-info {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    
+    /* Image Showcase */
     .image-showcase {
-        margin: 30px auto 40px;
+        margin: 10px auto 15px;
+        max-width: 100%;
     }
     
     .showcase-image {
-        border-radius: 16px;
-        padding: 6px;
+        max-height: 120px;
+        border-radius: 12px;
+        padding: 4px;
     }
     
+    /* Image Gallery */
     .image-gallery {
         grid-template-columns: 1fr;
-        gap: 25px;
-        margin: 30px auto 40px;
+        gap: 12px;
+        margin: 10px auto 15px;
     }
     
     .gallery-image {
-        height: 200px;
-        border-radius: 16px;
+        height: 100px;
+        border-radius: 12px;
+    }
+    
+    .gallery-caption {
+        font-size: 10px;
+        margin-top: 4px;
+    }
+    
+    .content-wrapper {
+        height: 100%;
+        max-height: 100vh;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+    
+    .tagline {
+        font-size: 16px;
+    }
+    
+    .tagline-expand {
+        font-size: 14px;
+    }
+    
+    .page-title {
+        font-size: 24px;
+    }
+    
+    .page-subtitle {
+        font-size: 12px;
+    }
+    
+    .slide {
+        padding: 15px 10px;
+    }
+    
+    .features-grid,
+    .benefits-grid,
+    .sports-grid,
+    .creative-grid,
+    .partnership-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ecosystem-visual {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-number {
+        font-size: 28px;
+    }
+    
+    .showcase-image {
+        max-height: 100px;
+    }
+    
+    .gallery-image {
+        height: 80px;
     }
 }
 
