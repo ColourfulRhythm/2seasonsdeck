@@ -38,27 +38,77 @@ function init() {
         }, 100);
     });
     
-    // Touch swipe support
+    // Touch swipe support - improved for mobile
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
+    let isSwiping = false;
+    let swipeCooldown = false;
     
-    document.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
+    const slidesContainer = document.querySelector('.slides-container');
     
-    document.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
+    slidesContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isSwiping = false;
+    }, { passive: true });
+    
+    slidesContainer.addEventListener('touchmove', (e) => {
+        if (!touchStartX || !touchStartY) return;
+        
+        touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
+        
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
+        
+        // Determine if this is a horizontal swipe (more horizontal than vertical)
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+            isSwiping = true;
+            // Prevent scrolling during horizontal swipe
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    slidesContainer.addEventListener('touchend', (e) => {
+        if (!touchStartX || !touchStartY || swipeCooldown) {
+            touchStartX = 0;
+            touchStartY = 0;
+            return;
+        }
+        
+        touchEndX = e.changedTouches[0].clientX;
+        touchEndY = e.changedTouches[0].clientY;
+        
         handleSwipe();
-    });
+        
+        // Reset
+        touchStartX = 0;
+        touchStartY = 0;
+        touchEndX = 0;
+        touchEndY = 0;
+        isSwiping = false;
+    }, { passive: true });
     
     function handleSwipe() {
         const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
         
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
+        // Only trigger if horizontal swipe is more significant than vertical
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThreshold) {
+            // Prevent rapid swipes
+            swipeCooldown = true;
+            setTimeout(() => {
+                swipeCooldown = false;
+            }, 500);
+            
+            if (diffX > 0) {
+                // Swipe left - next page
                 nextPage();
             } else {
+                // Swipe right - previous page
                 prevPage();
             }
         }
